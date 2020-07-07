@@ -1,48 +1,42 @@
 <template>
   <div id="app">
-    <Header />
-    <BlogList v-bind:posts="posts"/>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">BLOGVUE</a>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav" id="nav">
+                <router-link class="nav-item nav-link" to="/">HOME</router-link>
+                <router-link class="nav-item nav-link" to="/compose">COMPOSE</router-link>
+                <router-link class="nav-item nav-link" to="/about">ABOUT</router-link>
+              </div>
+        </div>
+    </div>
+  </nav>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Header from './components/Header.vue'
-import BlogList from './components/BlogList.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Header,
-    BlogList
-  },
-  data() {
-    return {
-      posts:[
-        {
-          id: 1,
-          title: 'my first post',
-          time: '2020.7.1',
-          post: 'This is my first post with vuejs'
-        },
-        {
-          id: 2,
-          title: 'my second post',
-          time: '2020.7.2',
-          post: 'This is my second post with vuejs'
-        }
-      ]
-    }
-  }
-}
-</script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.navbar-nav a:hover {
+  color: #1abc9c !important;
+}
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
