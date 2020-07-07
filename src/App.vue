@@ -13,9 +13,19 @@
     </div>
   </nav>
     <router-view/>
+  <Footer />
   </div>
 </template>
 
+<script>
+import Footer from './components/Footer.vue'
+export default {
+  name: "App",
+  components: {
+    Footer
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -39,4 +49,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>

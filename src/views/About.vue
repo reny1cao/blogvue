@@ -1,5 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="container">
+    <p class="text-center">This is a simple blog application built with vue.js.</p>
   </div>
 </template>
+
+<style scoped>
+  .container {
+    margin-top: 70px;
+  }
+</style>

@@ -60,6 +60,21 @@ app.get("/", (req, res) => {
       });
     });
   });
+
+  app.delete("/posts/:id", (req, res) => {
+    const id = req.params.id;
+    Post.findByIdAndDelete(id)
+      .then((post) => {
+        if (!post) {
+          res.status(404).send();
+        } else {
+          res.send(post);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send();
+      });
+  });
   
   app.listen(3000, function() {
     console.log("Server started on port 3000");

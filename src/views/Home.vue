@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <BlogList v-bind:posts="posts"/>
+    <BlogList v-bind:posts="posts" v-on:del-post="delPost"/>
   </div>
 </template>
 
@@ -16,6 +16,14 @@ export default {
   data() {
     return {
       posts:[]
+    }
+  },
+  methods: {
+    delPost(id) {
+      const url = 'http://localhost:3000/posts/' + id;
+      axios.delete(url)
+        .then(() => this.posts = this.posts.filter(post => post._id !== id))
+        .catch(err => console.log(err));
     }
   },
   created() {

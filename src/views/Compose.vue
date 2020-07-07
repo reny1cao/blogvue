@@ -9,8 +9,11 @@
         <label for="formGroupPostInput">Post</label>
         <textarea class="form-control" v-model="content" cols="30" rows="10"></textarea>
       </div>
-      <button type="submit" class="btn btn-light">Publish</button>
+      <button type="submit" class="btn btn-light shadow-sm rounded">Publish</button>
     </form>
+    <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Successfully Published !
+    </div>   -->
   </div>
 </template>
 
@@ -28,7 +31,10 @@ export default {
   methods: {
     addPost() {
       axios.post("http://localhost:3000/compose", {title:this.title, content:this.content})
-      .then(() => this.$router.push("/"))
+      .then(() => {
+        this.title = "";
+        this.content = "";
+      })
       .catch((err) => console.log(err));
     }
   }
