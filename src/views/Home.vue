@@ -28,7 +28,7 @@ export default {
   },
   created() {
     axios.get('http://localhost:3000/')
-      .then(res => this.posts = [...res.data])
+      .then(res => this.posts = [...res.data].reverse())
       .catch(err => console.log(err));
   }
 }

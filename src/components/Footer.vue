@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <div class="footer">
+<div>
+    <div class="space"></div>
+    <footer class="footer fixed-bottom">
       <p>Renyi built with ⼼</p>
+    </footer>
     </div>
-  </div>
 </template>
 
 <script>
@@ -14,13 +15,11 @@ export default {
 
 <style scoped>
 .footer {
-  position: fixed;
   display: table;
   text-align: center;
-  bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #42b983;
+  background-image: linear-gradient(to right, #1D976C, #93F9B9);
 }
 
 .footer p {
@@ -28,5 +27,9 @@ export default {
   color: #fff;
   display: table-cell;
   vertical-align: middle;
+}
+
+.space {
+    margin-top: 100px;
 }
 </style>
