@@ -32,8 +32,7 @@ export default {
     addPost() {
       axios.post("http://localhost:3000/compose", {title:this.title, content:this.content})
       .then(() => {
-        this.title = "";
-        this.content = "";
+        this.$router.replace("/");
       })
       .catch((err) => console.log(err));
     }

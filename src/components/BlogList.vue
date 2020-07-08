@@ -33,6 +33,9 @@ export default {
   methods: {
     delPost(id) {
       this.$emit("del-post", id);
+    },
+    navigate(post) {
+        this.$router.push({name: 'Post', params:{postId:post._id}});
     }
   }
 };
