@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
     let newPost = new Post({
       title: req.body.title,
       time: new Date().toLocaleString(),
-      post: req.body.content
+      post: req.body.post
     });
     newPost.save((err)=>{
       if (!err) {

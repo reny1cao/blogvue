@@ -1,39 +1,63 @@
 <template>
   <div id="app">
-    <BlogList v-bind:posts="posts" v-on:del-post="delPost"/>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <BlogList v-bind:posts="posts" v-on:del-post="delPost" v-on:sel-post="selPost"/>
+        </div>
+        <div class="col">
+          <Post v-bind:selectedPost="selectedPost"/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import BlogList from '../components/BlogList.vue'
-import axios from 'axios'
+import BlogList from "../components/BlogList.vue";
+import Post from "../components/Post.vue";
+import axios from "axios";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    BlogList
+    BlogList,
+    Post
   },
   data() {
     return {
-      posts:[]
-    }
+      posts: [],
+      selectedPost: []
+    };
   },
   methods: {
     delPost(id) {
-      const url = 'http://localhost:3000/posts/' + id;
-      axios.delete(url)
-        .then(() => this.posts = this.posts.filter(post => post._id !== id))
+      const url = "http://localhost:3000/posts/" + id;
+      axios
+        .delete(url)
+        .then(() => (this.posts = this.posts.filter(post => post._id !== id)))
         .catch(err => console.log(err));
     },
+    selPost(id) {
+      this.selectedPost = this.posts.filter(post => post._id === id)[0];
+    }
   },
   created() {
-    axios.get('http://localhost:3000/')
-      .then(res => this.posts = [...res.data].reverse())
+    axios
+      .get("http://localhost:3000/")
+      .then(res => (this.posts = [...res.data].reverse()))
       .catch(err => console.log(err));
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style scoped>
+.container {
+  margin-top: 45px;
+}
+/* .col {
+  border: solid red 1px;
+} */
+</style>>
+
 

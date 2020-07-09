@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Post from "../views/Post.vue";
 
 Vue.use(VueRouter);
 
@@ -25,13 +24,7 @@ const routes = [
     name: "Compose",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Compose.vue"),
-  },
-  {
-    path: "/post/:postId",
-    name: "Post",
-    component: Post,
-    props: true,
-  },
+  }
 ];
 
 const router = new VueRouter({
