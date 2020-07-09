@@ -10,7 +10,7 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{ post.title }}</h5>
-              <div v-html="post.post"></div>
+              <p class="post" v-html="post.post"></p>
               <p class="card-text">
                 <small class="text-muted">{{ post.time }}</small>
               </p>
@@ -75,5 +75,10 @@ export default {
 }
 .post-detail {
   float: right;
+}
+.post {
+    height: 2em; 
+    line-height: 1em; 
+    overflow: hidden;
 }
 </style>

@@ -55,9 +55,6 @@ export default {
 .container {
   margin-top: 45px;
 }
-/* .col {
-  border: solid red 1px;
-} */
 </style>>
 
 
