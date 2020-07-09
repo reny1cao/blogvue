@@ -2,14 +2,14 @@
   <div class="post">
     <h2>{{selectedPost.title}}</h2>
     <small class="text-muted">{{selectedPost.time}}</small>
-    <p>{{selectedPost.post}}</p>
+    <div v-html="selectedPost.post"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Post",
-  props: ["selectedPost"],
+  props: ["selectedPost"]
 };
 </script>
 

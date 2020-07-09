@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <form @submit="addPost">
+    <form>
       <div class="form-group">
         <label for="formGroupTitleInput">Title</label>
         <input type="text" class="form-control" v-model="title" />
       </div>
       <label for="formGroupTitleInput">Post</label>
-      <div class="editor">
+    </form>
+    <div class="editor">
         <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
           <div class="menubar">
             <button
@@ -317,11 +318,9 @@
             </button>
           </div>
         </editor-menu-bar>
-
         <editor-content class="editor__content border" :editor="editor" />
       </div>
-      <button type="submit" class="btn btn-light shadow-sm rounded">Publish</button>
-    </form>
+      <button @click="addPost" class="btn btn-light shadow-sm rounded">Publish</button>
     <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
       Successfully Published !
     </div>-->
@@ -399,6 +398,8 @@ export default {
           post: this.post
         })
         .then(() => {
+          this.title = "";
+          this.post = "";
           this.$router.replace("/");
         })
         .catch(err => console.log(err));
