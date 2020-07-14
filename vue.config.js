@@ -1,5 +1,13 @@
-// module.exports = {
-//     publicPath: process.env.NODE_ENV === 'production'
-//     ? '/production-sub-path/'
-//     : 'http://localhost:3000'
-// }
+module.exports = {
+    devServer: {
+        proxy: {
+            '/api': {
+                target: "http://localhost:3000",
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api':''
+                }
+            }
+        }
+    }
+}

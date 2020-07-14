@@ -2,7 +2,7 @@
   <div>
     <h3>2020</h3>
     <div v-bind:key="post._id" v-for="post in posts">
-      <div class="card shadow-sm rounded">
+      <div class="card rounded">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="../assets/image2.jpeg" class="card-img" alt="..." />
@@ -66,6 +66,11 @@ export default {
 .card {
   max-width: 600px;
   margin-top: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.065);
+    box-shadow: -1px 12px 50px -20px rgba(0,0,0,0.47);
 }
 .card-img {
   max-width: auto;
