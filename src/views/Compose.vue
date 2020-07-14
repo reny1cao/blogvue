@@ -1,15 +1,16 @@
 <template>
   <div class="container">
     <form @submit.prevent="uploadFile" enctype="multipart/form-data">
+
+      <Dropzone />
     
-      <div class="form-group">
-        <Dropzone />
+      <div class="title">
         <label for="formGroupTitleInput">Title</label>
         <input type="text" class="form-control" v-model="title" />
       </div>
-      <label for="formGroupTitleInput">Post</label>
     </form>
     <div class="editor">
+      <label for="formGroupTitleInput">Post</label>
       <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
         <div class="menubar">
           <button
@@ -363,9 +364,6 @@ export default {
   },
   data() {
     return {
-      banner: null,
-      uploadMessage: null,
-      uploadError: false,
       publishMessage: null,
       publishError: false,
       title: null,
@@ -461,7 +459,7 @@ export default {
   margin-top: 45px;
 }
 .editor {
-  margin: 0 0 30px 0;
+  margin: 10px 0 30px 0;
 }
 .menubar {
   margin-bottom: 20px;
@@ -472,8 +470,12 @@ export default {
 .editor__content {
   padding: 20px;
   min-height: 300px;
+  background: white;
 }
 .editor__content:focus {
   outline: none;
+}
+.title {
+  margin-top: 30px;
 }
 </style>

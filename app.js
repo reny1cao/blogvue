@@ -94,9 +94,9 @@ const MAX_SIZE = 200000;
 const upload = multer({
     dest: "./uploads/",
     fileFilter,
-    limits: {
-        fileSize: MAX_SIZE
-    }
+    // limits: {
+    //     fileSize: MAX_SIZE
+    // }
 })
 
   app.post("/upload", upload.single("banner"), (req, res) => {

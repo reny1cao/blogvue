@@ -63,4 +63,11 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23a9a9a9' fill-opacity='0.16'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
 }
+label {
+    font-size: 30px;
+    text-transform: uppercase;
+	background: linear-gradient(to right, #1D976C, #93F9B9);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 </style>
