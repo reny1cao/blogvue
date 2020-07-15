@@ -37,14 +37,17 @@
       ></div>
     </div>
 
-    <div class="content">{{ uploadedFile.originalname }}</div>
+    <div v-if="uploadedFile" class="content">
+      <img v-bind:src="uploadedFile" alt="banner" />
+      {{uploadedFile}}
+    </div>
 
     <div
-      class="alert alert-dismissible fade show"
-      v-if="uploadMessage"
-      :class="`${uploadError ? 'alert-danger' : 'alert-success'}`"
+      class="alert fade show"
+      v-if="message"
+      :class="`${error ? 'alert-danger' : 'alert-success'}`"
       role="alert"
-    >{{ uploadMessage }}</div>
+    >{{ message }}</div>
   </form>
 </template>
 
@@ -80,6 +83,7 @@ export default {
           }
         );
         this.uploadedFile = res.data.file;
+        this.$emit("select-banner", res.data.file);
         this.uploading = false;
       } catch (err) {
         this.message = err.response.data.error;
@@ -118,6 +122,9 @@ export default {
     inset 0 6px 15px 0 rgba(0, 0, 0, 0.19);
 }
 .upload-icon {
-    margin-right: 5px;
+  margin-right: 5px;
+}
+.content img {
+    max-width: 400px;
 }
 </style>

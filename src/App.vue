@@ -34,7 +34,7 @@ export default {
   color: #2c3e50;
 }
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .navbar {
   padding-top: 15px;
@@ -64,10 +64,10 @@ body {
   background-attachment: fixed;
 }
 label {
-    font-size: 30px;
-    text-transform: uppercase;
-	background: linear-gradient(to right, #1D976C, #93F9B9);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  font-size: 30px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #1d976c, #93f9b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

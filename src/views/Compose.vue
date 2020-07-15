@@ -2,7 +2,7 @@
   <div class="container">
     <form @submit.prevent="uploadFile" enctype="multipart/form-data">
 
-      <Dropzone />
+      <Dropzone v-on:select-banner="selectBanner"/>
     
       <div class="title">
         <label for="formGroupTitleInput">Title</label>
@@ -366,6 +366,7 @@ export default {
     return {
       publishMessage: null,
       publishError: false,
+      banner: null,
       title: null,
       post: null,
       editor: new Editor({
@@ -400,9 +401,11 @@ export default {
     async addPost() {
       try {
         await axios.post("http://localhost:3000/compose", {
+          banner: this.banner,
           title: this.title,
           post: this.post
         });
+        this.banner = "";
         this.title = "";
         this.editor.clearContent();
         this.post = "";
@@ -446,6 +449,10 @@ export default {
         this.uploadMessage = error.response.data.error;
         this.uploadError = true;
       }
+    },
+    selectBanner(file) {
+      this.banner = file;
+      console.log(file)
     }
   },
   beforeDestroy() {
@@ -477,5 +484,8 @@ export default {
 }
 .title {
   margin-top: 30px;
+}
+.alert {
+    margin-top: 10px;
 }
 </style>
