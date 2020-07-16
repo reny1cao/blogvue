@@ -64,9 +64,9 @@ export default {
   display: block;
 }
 .card {
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 90%;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin: 20px auto;
 }
 .card:hover {
     transform: scale(1.065);

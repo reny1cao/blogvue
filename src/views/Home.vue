@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <div class="container">
-      <div class="row">
-        <div class="col">
+      <div class="row row-height">
+        <div class="col left">
           <BlogList v-bind:posts="posts" v-on:del-post="delPost" v-on:sel-post="selPost"/>
         </div>
-        <div class="col">
+        <div class="col right">
           <Post v-bind:selectedPost="selectedPost"/>
         </div>
       </div>
@@ -54,6 +54,20 @@ export default {
 <style scoped>
 .container {
   margin-top: 45px;
+}
+
+.row-height{
+  height: 100vh;
+}
+
+.left{
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.right{
+  height: 100%;
+  overflow-y: scroll;
 }
 </style>>
 

@@ -318,7 +318,7 @@
           </button>
         </div>
       </editor-menu-bar>
-      <editor-content class="editor__content border" :editor="editor" v-bind="post"/>
+      <editor-content class="editor__content border" :editor="editor"/>
     </div>
     <button @click="addPost" class="btn btn-light shadow-sm rounded">Publish</button>
     <div

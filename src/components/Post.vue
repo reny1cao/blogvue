@@ -1,7 +1,7 @@
 <template>
   <div class="post">
-    <img class="banner" :src="selectedPost.banner" alt="post banner">
-    <h2>{{selectedPost.title}}</h2>
+    <img class="banner" v-if="selectedPost.banner" :src="selectedPost.banner" alt="post banner">
+    <h2 class="title">{{selectedPost.title}}</h2>
     <small class="text-muted">{{selectedPost.time}}</small>
     <div v-html="selectedPost.post"></div>
   </div>
@@ -18,10 +18,12 @@ export default {
 .post {
   position: -webkit-sticky;
   position: sticky;
-  top: 100px;
-  margin-top: 50px;
+  top: 50px;
 }
 .banner {
-  max-width: 400px;
+  width: 100%;
+}
+.title {
+  margin-top: 20px;
 }
 </style>

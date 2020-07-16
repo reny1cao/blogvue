@@ -126,5 +126,6 @@ export default {
 }
 .content img {
     max-width: 400px;
+    display: block;
 }
 </style>
