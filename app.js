@@ -10,8 +10,8 @@ const path = require("path");
 const aws = require("aws-sdk");
 
 aws.config.update({
-  accessKeyId: "AKIAIGBW2QHM2N5NXIZA",
-  secretAccessKey: "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",
+  accessKeyId: "",
+  secretAccessKey: "",
 });
 
 const app = express();
